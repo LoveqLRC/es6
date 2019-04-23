@@ -79,3 +79,63 @@ let str = `今天是${day}`;
 
 console.log(str);
 ```
+
+## 带标签的模板字符串
+
+```
+'use strict';
+
+
+let username = "rc", password = "123";
+
+let loginInfo = login `用户名是${username} 密码是${password}`;
+
+function login(string, ...values) {
+    // ["用户名是", " 密码是", "", raw: Array(3)]
+    // 0: "用户名是"
+    // 1: " 密码是"
+    // 2: ""
+    console.log(string);
+    //["rc", "123"]
+    console.log(values);
+}
+
+console.log(loginInfo);
+```
+## 判断字符串里是否包含其他字符串
+
+```
+'use strict';
+
+
+let username = "rc", password = "123";
+
+let loginInfo = `用户名是${username} 密码是${password}`;
+
+
+//判断字符串以什么开头 ,这里返回true
+console.log(loginInfo.startsWith("用户名"));
+
+//判断字符串以什么结尾 ,这里返回true
+console.log(loginInfo.endsWith(password));
+
+//判断字符串包含什么字符，这里返回false
+console.log(loginInfo.includes("1234"));
+```
+
+## 函数默认参数
+```
+'use strict';
+
+function login(username = 'rc', password = '123') {
+    return `用户名是${username} 密码是${password}`
+}
+
+//不传入函数值，就会使用默认的值
+console.log(login());
+
+```
+
+
+
+
