@@ -1,10 +1,10 @@
 'use strict';
 
-function login(username = 'rc', password = '123') {
-    return `用户名是${username} 密码是${password}`
+function meeting(when, where, {person, activity} = {}) {
+    console.log(when, where, person, activity);
 }
 
-//不传入函数值，就会使用默认的值
-console.log(login());
+//输出：12点 广州 rc movie
+meeting('12点', '广州', {person: 'rc', activity: 'movie'});
 
 

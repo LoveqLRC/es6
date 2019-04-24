@@ -136,6 +136,49 @@ console.log(login());
 
 ```
 
+## 展开操作符
+```
+'use strict';
+
+let username = ['张三', '李四'];
+
+//输出 ['张三', '李四']
+console.log(username);
+//输出张三 李四(这里将数组的每一个元素输出)
+console.log(...username);
+
+// 输出["王五", "张三", "李四"]
+let otheruser =['王五',...username];
+console.log(otheruser);
+
+```
+
+## 剩余操作符
 
 
 
+```
+'use strict';
+
+//...在参数里面代表剩余操作符
+function username(firstUser, secondUser, ...otherUser) {
+    //console中的otherUser表示将...otherUser放大otherUser数组中
+    console.log(firstUser, secondUser, otherUser);
+    // console.log(firstUser, secondUser, ...otherUser); 这里表示的就是展开操作符
+}
+
+// 输出 aaa bbbb  ["cccc", "ddddd"]
+username("aaa", 'bbbb', 'cccc', 'ddddd');
+```
+
+## 结构参数
+```
+'use strict';
+
+function meeting(when, where, {person, activity} = {}) {
+    console.log(when, where, person, activity);
+}
+
+//输出：12点 广州 rc movie
+meeting('12点', '广州', {person: 'rc', activity: 'movie'});
+```
