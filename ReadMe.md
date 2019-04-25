@@ -182,3 +182,85 @@ function meeting(when, where, {person, activity} = {}) {
 //输出：12点 广州 rc movie
 meeting('12点', '广州', {person: 'rc', activity: 'movie'});
 ```
+
+## 函数的名字--name属性
+
+```
+'use strict';
+
+let login = function () {
+
+};
+
+//输出login
+console.log(login.name);
+
+
+let logout = function MyLogout() {
+
+};
+
+//输出MyLogout
+console.log(logout.name);
+```
+
+## 箭头函数
+
+```
+'use strict';
+
+// let login = (username, password) => username + password;
+
+
+//如果有其他操作，可以在外面包裹{}
+// let login = (username, password) => {
+//     return username + password;
+// };
+
+// 等价于
+// let login = function login(username, password) {
+//     return username + password;
+// };
+
+//输出rc123
+console.log(login('rc', '123'));
+```
+
+## 对象表达式
+
+```
+'use strict';
+
+let myUserName = 'rc', myPassword = '123';
+
+let login = {
+    username: myUserName,
+    password: myPassword
+};
+//输出{username: "rc", password: "123"}
+console.log(login);
+
+//如果变量名和属性一样的话可以直接加属性，不用指定值
+let myLogin = {
+    myUserName,
+    myPassword
+};
+//输出{myUserName: "rc", myPassword: "123"}
+console.log(myLogin);
+
+
+let otherLogin ={
+    login:function () {
+
+    }
+};
+
+//等价于
+// let otherLogin ={
+//     login () {
+//
+//     }
+// };
+```
+
+

@@ -1,10 +1,32 @@
 'use strict';
 
-function meeting(when, where, {person, activity} = {}) {
-    console.log(when, where, person, activity);
-}
+let myUserName = 'rc', myPassword = '123';
 
-//输出：12点 广州 rc movie
-meeting('12点', '广州', {person: 'rc', activity: 'movie'});
+let login = {
+    username: myUserName,
+    password: myPassword
+};
+//输出{username: "rc", password: "123"}
+console.log(login);
+
+//如果变量名和属性一样的话可以直接加属性，不用指定值
+let myLogin = {
+    myUserName,
+    myPassword
+};
+//输出{myUserName: "rc", myPassword: "123"}
+console.log(myLogin);
 
 
+let otherLogin ={
+    login:function () {
+
+    }
+};
+
+//等价于
+// let otherLogin ={
+//     login () {
+//
+//     }
+// };
