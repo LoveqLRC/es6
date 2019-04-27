@@ -263,4 +263,62 @@ let otherLogin ={
 // };
 ```
 
+## 对象属性名
 
+```
+'use strict';
+
+let fruit = {};
+
+fruit.apple ='苹果';
+
+//如果属性名有空格，可以这样[`green apple`]添加属性
+fruit[`green apple`] ='青苹果';
+
+let otherApple ='other apple';
+
+//也可以通过定义一个变量来添加属性
+fruit[otherApple]='其他苹果';
+
+//输出{apple: "苹果", green apple: "青苹果", other apple: "其他苹果"}
+console.log(fruit);
+
+
+```
+
+## 对比两个值是否相等
+```
+'use strict';
+
+//true
+console.log(+0==-0);
+
+//true
+console.log(+0===-0);
+
+
+//false
+console.log(NaN == NaN);
+
+//false
+console.log(NaN === NaN);
+
+//false
+console.log(Object.is(+0,-0));
+
+//true
+console.log(Object.is(NaN,NaN));
+```
+
+## 把对象的属性复制到另外一个对象里
+
+```
+'use strict';
+
+let userInfo={};
+
+Object.assign(userInfo,{userName:'rc',password:'123'});
+
+//{userName: "rc", password: "123"}
+console.log(userInfo);
+```
