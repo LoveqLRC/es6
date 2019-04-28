@@ -1,8 +1,17 @@
 'use strict';
 
-let userInfo={};
 
-Object.assign(userInfo,{userName:'rc',password:'123'});
+let username = {
+    getUserName() {
+        return 'rc';
+    }
+};
 
-//{userName: "rc", password: "123"}
-console.log(userInfo);
+let user ={
+  __proto__:username,
+  getUserName(){
+      return super.getUserName()+"123";
+  }
+};
+//rc123
+console.log(user.getUserName());

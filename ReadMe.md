@@ -322,3 +322,85 @@ Object.assign(userInfo,{userName:'rc',password:'123'});
 //{userName: "rc", password: "123"}
 console.log(userInfo);
 ```
+
+## 设置对象的Prototype
+```
+'use strict';
+
+
+let username = {
+    getUserName() {
+        return 'rc';
+    }
+};
+
+let password = {
+    getPassword() {
+        return '123';
+    }
+};
+
+let userInfo =Object.create(username);
+//rc
+console.log(userInfo.getUserName());
+//true
+console.log(Object.getPrototypeOf(userInfo)===username);
+
+```
+
+## __proto__
+```
+'use strict';
+
+
+let username = {
+    getUserName() {
+        return 'rc';
+    }
+};
+
+let password = {
+    getPassword() {
+        return '123';
+    }
+};
+
+let userInfo = {
+    __proto__: username
+};
+//rc
+console.log(userInfo.getUserName());
+//true
+console.log(Object.getPrototypeOf(userInfo) === username);
+
+userInfo.__proto__ = password;
+
+//123
+console.log(userInfo.getPassword());
+//true
+console.log(Object.getPrototypeOf(userInfo) === password);
+```
+
+## super
+
+```
+'use strict';
+
+
+let username = {
+    getUserName() {
+        return 'rc';
+    }
+};
+
+let user ={
+  __proto__:username,
+  getUserName(){
+      return super.getUserName()+"123";
+  }
+};
+//rc123
+console.log(user.getUserName());
+
+```
+
