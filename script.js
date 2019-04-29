@@ -1,17 +1,15 @@
 'use strict';
 
-
-let username = {
-    getUserName() {
-        return 'rc';
+class User {
+    constructor(userName) {
+        this.userName = userName;
     }
-};
 
-let user ={
-  __proto__:username,
-  getUserName(){
-      return super.getUserName()+"123";
-  }
-};
-//rc123
-console.log(user.getUserName());
+    getUserName() {
+        console.log(this.userName);
+    }
+}
+
+let userInfo = new User("rc");
+//rc
+userInfo.getUserName();

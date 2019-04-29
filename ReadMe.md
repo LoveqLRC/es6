@@ -404,3 +404,79 @@ console.log(user.getUserName());
 
 ```
 
+## 迭代器
+```
+'use strict';
+
+function chef(foods) {
+    let i = 0;
+    return {
+        next() {
+            let done = (i >= foods.length);
+            let value = !done ? foods[i++] : undefined;
+            return {
+                value: value,
+                done: done,
+            }
+        }
+    }
+}
+
+let rc = chef(['🍎', '🍊']);
+
+//{value: "🍎", done: false}
+console.log(rc.next());
+
+//{value: "🍊", done: false}
+console.log(rc.next());
+
+//{value: undefined, done: true}
+console.log(rc.next());
+
+```
+
+## 生成器
+
+```
+'use strict';
+
+function* chef(foods) {
+    // yield '🍎';
+    // yield '🍊';
+
+    for (let i = 0; i < foods.length; i++) {
+        yield foods[i];
+    }
+}
+
+let rc = chef(['🍎','🍊']);
+
+//{value: "🍎", done: false}
+console.log(rc.next());
+
+//{value: "🍊", done: false}
+console.log(rc.next());
+
+//{value: undefined, done: true}
+console.log(rc.next());
+```
+
+## 类
+
+```
+'use strict';
+
+class User {
+    constructor(userName) {
+        this.userName = userName;
+    }
+
+    getUserName() {
+        console.log(this.userName);
+    }
+}
+
+let userInfo = new User("rc");
+//rc
+userInfo.getUserName();
+```
