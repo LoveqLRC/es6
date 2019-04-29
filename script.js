@@ -1,15 +1,22 @@
 'use strict';
 
-class User {
-    constructor(userName) {
-        this.userName = userName;
+class Person {
+    constructor(name, age) {
+        this.name=name;
+        this.age=age;
     }
 
-    getUserName() {
-        console.log(this.userName);
+    info(){
+        return `${this.name},${this.age}`
     }
 }
 
-let userInfo = new User("rc");
-//rc
-userInfo.getUserName();
+class Rc extends  Person{
+    constructor(name,age){
+        super(name,age)
+    }
+}
+
+//Rc {name: "rc", age: "18"}
+console.log(new Rc("rc","18"));
+

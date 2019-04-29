@@ -480,3 +480,79 @@ let userInfo = new User("rc");
 //rc
 userInfo.getUserName();
 ```
+
+## get与set
+
+```
+'use strict';
+
+class User {
+    constructor() {
+        this.userName = [];
+    }
+
+    get user() {
+        return this.userName;
+    }
+
+    set user(userName) {
+        this.userName.push(userName);
+    }
+}
+
+let userInfo = new User();
+userInfo.user="张三";
+userInfo.user="李四";
+//["张三", "李四"]
+console.log(userInfo.user);
+
+
+```
+
+## 静态方法static
+
+```
+'use strict';
+
+class User {
+  static printUser(user){
+      console.log(user);
+  }
+}
+
+
+//静态方法不需要实例化类
+//rc
+User.printUser('rc');
+
+
+```
+
+## 继承 extend
+
+
+```
+'use strict';
+
+class Person {
+    constructor(name, age) {
+        this.name=name;
+        this.age=age;
+    }
+
+    info(){
+        return `${this.name},${this.age}`
+    }
+}
+
+class Rc extends  Person{
+    constructor(name,age){
+        super(name,age)
+    }
+}
+
+//Rc {name: "rc", age: "18"}
+console.log(new Rc("rc","18"));
+
+
+```
