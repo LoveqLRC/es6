@@ -556,3 +556,75 @@ console.log(new Rc("rc","18"));
 
 
 ```
+
+## Set
+
+```
+'use strict';
+
+let userNames = new Set(['张三', '李四', '王五', '张三']);
+
+
+//Set(3) {"张三", "李四", "王五"}
+console.log(userNames);
+
+userNames.add('rc');
+
+//Set(4) {"张三", "李四", "王五", "rc"}
+console.log(userNames);
+
+//true
+console.log(userNames.has('rc'));
+
+//true
+console.log(userNames.delete('rc'));
+
+
+//张三
+//李四
+// 王五
+userNames.forEach(user => {
+    console.log(user)
+});
+
+userNames.clear();
+
+//Set(0) {}
+console.log(userNames);
+
+
+
+
+
+```
+
+## Map
+```
+'use strict';
+
+let food = new Map();
+
+let fruit = {}, cook = function () {
+}, dessert = '甜点';
+
+
+food.set(fruit, '苹果');
+food.set(cook, '🍴');
+food.set(dessert, '甜点');
+
+console.log(food);
+console.log(food.size);
+console.log(food.get(fruit));
+
+food.delete(dessert);
+
+console.log(food.has(dessert));
+
+food.forEach(((value, key) => {
+    console.log(`${key}==${value} `)
+}));
+
+```
+
+
+

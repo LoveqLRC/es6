@@ -1,22 +1,25 @@
 'use strict';
 
-class Person {
-    constructor(name, age) {
-        this.name=name;
-        this.age=age;
-    }
+let food = new Map();
 
-    info(){
-        return `${this.name},${this.age}`
-    }
-}
+let fruit = {}, cook = function () {
+}, dessert = '甜点';
 
-class Rc extends  Person{
-    constructor(name,age){
-        super(name,age)
-    }
-}
 
-//Rc {name: "rc", age: "18"}
-console.log(new Rc("rc","18"));
+food.set(fruit, '苹果');
+food.set(cook, '🍴');
+food.set(dessert, '甜点');
+
+console.log(food);
+console.log(food.size);
+console.log(food.get(fruit));
+
+food.delete(dessert);
+
+console.log(food.has(dessert));
+
+food.forEach(((value, key) => {
+    console.log(`${key}==${value} `)
+}));
+
 
